@@ -1,0 +1,6 @@
+{
+  "name": "FisioTech LP Template",
+  "description": "Template de Landing Page conversiva para prospectar clínicas e profissionais de fisioterapia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
