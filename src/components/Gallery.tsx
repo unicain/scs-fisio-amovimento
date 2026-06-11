@@ -48,6 +48,7 @@ export function Gallery() {
                  src={item.thumbnailUrl} 
                  alt={item.caption}
                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                 referrerPolicy="no-referrer"
                />
                
                {/* Gradient Overlay for Text Legibility */}

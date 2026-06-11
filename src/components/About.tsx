@@ -13,6 +13,7 @@ export function About() {
                 src={lpData.about.imageUrl}
                 alt={lpData.about.name}
                 className="h-full w-full object-cover"
+                referrerPolicy="no-referrer"
               />
             </div>
           </div>

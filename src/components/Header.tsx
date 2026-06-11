@@ -20,6 +20,7 @@ export function Header() {
                 src={lpData.theme.logoUrl} 
                 alt="Logo Dunna" 
                 className="h-14 w-auto object-contain rounded-full bg-white/50 p-1"
+                referrerPolicy="no-referrer"
                 onError={(e) => {
                   // Fallback se a imagem não existir
                   e.currentTarget.style.display = 'none';

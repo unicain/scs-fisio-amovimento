@@ -14,6 +14,7 @@ export function Hero() {
           src={lpData.hero.imageUrl} 
           alt="Clínica de Fisioterapia" 
           className="w-full h-full object-cover object-center opacity-10"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
       </div>
@@ -25,6 +26,7 @@ export function Hero() {
               src={lpData.theme.logoUrl} 
               alt="Logo" 
               className="h-20 w-auto mb-8 object-contain" 
+              referrerPolicy="no-referrer"
             />
           )}
           <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl text-balance mt-4">
@@ -48,7 +50,8 @@ export function Hero() {
            <img 
             src={lpData.hero.imageUrl} 
             alt="Atendimento" 
-            className="w-full aspect-[4/5] object-cover rounded-3xl shadow-2xl border-4 border-white"
+            className="w-full object-contain rounded-3xl shadow-2xl border-4 border-white"
+            referrerPolicy="no-referrer"
           />
         </div>
       </div>

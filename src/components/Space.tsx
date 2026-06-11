@@ -38,6 +38,7 @@ export function Space() {
                   alt={featuredImage.alt}
                   className="h-full w-full object-cover object-center hover:scale-105 transition-transform duration-700 max-h-[400px]"
                   style={{ objectPosition: 'center 40%' }} // Focus slightly higher for facade
+                  referrerPolicy="no-referrer"
                 />
               </div>
               
@@ -47,6 +48,7 @@ export function Space() {
                     src={img.url}
                     alt={img.alt}
                     className="h-full w-full object-cover object-center hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
               ))}

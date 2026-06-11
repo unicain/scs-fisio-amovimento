@@ -19,7 +19,7 @@ export const lpData: LandingPageConfig = {
   hero: {
     headline: 'Movimento Consciente, Saúde Integral',
     subheadline: 'Descubra como o Pilates e a Fisioterapia transformam a sua rotina. Oferecemos reabilitação e cuidados essenciais para todas as idades, com destaque para o Pilates na Gestação.',
-    imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: './logo.png',
     ctaText: 'Agendar Avaliação',
   },
   services: {
@@ -56,7 +56,7 @@ export const lpData: LandingPageConfig = {
     name: 'Ateliê do Movimento',
     role: 'Fisioterapia & Pilates',
     bio: 'Nosso espaço é dedicado ao cuidado com o seu corpo. A frente do Ateliê está Rochele Klafke Silveira, fisioterapeuta formada pela UNISC (2011), com especializações que garantem um tratamento seguro, focado em resultados e no seu conforto emocional e físico.',
-    imageUrl: 'https://drive.google.com/uc?export=view&id=1k1wmsGWB8KBqtbauxeEA09IJfLmZ3_V8', 
+    imageUrl: './about.png', 
     credentials: [
       'Rochele Klafke Silveira - CREFITO 5-170417',
       'Fisioterapeuta graduada pela UNISC (2011)',
