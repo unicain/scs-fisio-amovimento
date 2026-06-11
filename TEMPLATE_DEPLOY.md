@@ -58,21 +58,27 @@ Se precisar ajustar na mão:
 2. Substitua as ocorrências da cor hexadecimal na base do projeto (especialmente em `src/data.ts` se houver cores configuradas lá, ou nas classes do Tailwind ao longo dos componentes).
 3. Se quiser alterar a cor de fundo dos botões principais, procure por `bg-[#B68D5D]` ou `bg-slate-900` e troque pela cor principal da nova marca.
 
-## Passo 6: Geração de URL Personalizada (O "Efeito Uau")
-Nunca envie o link "puro". Use o parâmetro que ativa o **DemoBanner** para dar o sentimento de exclusividade.
-1. Pegue a URL final de visualização.
-2. Adicione ao final da URL: `?lead=NOME_DO_NEGÓCIO`
-3. *Exemplo:* `https://seu-app-deployado.com/?lead=Clínica%20Sorriso`
-4. Isso fará o topo da página dizer: *"DEMONSTRAÇÃO EXCLUSIVA, criada para Clínica Sorriso"*.
+## Passo 5: Geração de URL Personalizada (O "Efeito Uau") e Integração com Planilha (Nível 2)
+Para ganhar escala (gerar diversas LPs sem duplicar o código), utilizamos a infraestrutura de **Google Sheets (CSV)**.
 
-## Passo 7: Deploy no GitHub e Cloudflare (Subdomínio)
+**Como funciona a Automação por Planilha (Nível 2):**
+1. Crie uma planilha no Google Sheets com as seguintes colunas (exatamente com estes nomes na primeira linha):
+   `leadId`, `name`, `primaryColor`, `logoUrl`, `heroImageUrl`, `instagramUrl`, `instagramHandle`, `googleMapsLink`, `address`, `whatsappNumber`, `whatsappMessage`, `role`, `aboutImageUrl`, `bio`, `headline`, `subheadline`.
+2. Preencha uma linha para cada lead. A coluna `leadId` deve ser o identificador único na URL (ex: `clinica_sorriso`).
+3. No Google Sheets, vá em **Arquivo > Compartilhar > Publicar na Web**. Escolha a aba da sua planilha e mude o formato para **Valores separados por vírgula (.csv)**. Clique em Publicar e copie o link gerado.
+4. Volte para o projeto e cole esse link no arquivo `.env` na variável `VITE_GOOGLE_SHEET_CSV_URL`.
+5. Agora, apenas enviando o link com o parâmetro `?lead=clinica_sorriso`, a LP automaticamente buscará os dados da planilha e substituirá as cores, imagens, endereço e links específicos deste lead (mantendo o resto do layout e textos padrão do *Ateliê do Movimento* como base).
+
+**Aviso:** O DemoBanner continuará usando o parâmetro `?lead=` para imprimir o título (ex: *"DEMONSTRAÇÃO EXCLUSIVA, criada para clinica_sorriso"*).
+
+## Passo 6: Deploy no GitHub e Cloudflare (Subdomínio)
 1. **Exportação**: Exporte o código do projeto para um novo repositório no seu GitHub.
 2. **Visibilidade do Repositório**: Certifique-se de que o repositório no GitHub está como **Public** (Público). Repositórios privados, dependendo do plano, não permitem o uso gratuito do GitHub Pages. Para alterar, vá em *Settings* > *General* > *Change repository visibility* no final da página.
 3. **Configuração de Build and Deployment**: No repositório, vá em *Settings* > *Pages*. Em **Build and deployment**, na opção **Source**, selecione **GitHub Actions**. Isso ativará o workflow que compila a aplicação (`deploy.yml`).
 4. **DNS no Cloudflare**: Acesse o painel do Cloudflare (onde o domínio `unicain.com.br` está gerenciado) e crie um novo registro **CNAME** apontando o subdomínio do lead (ex: `clinicasorriso`) para o servidor do GitHub Pages (geralmente `seu-usuario.github.io`).
 5. **GitHub Pages + Custom Domain**: Ainda na aba *Settings* > *Pages* do GitHub, após selecionar GitHub Actions e ele rodar com sucesso, desça até a opção **Custom domain**. Insira o subdomínio completo (ex: `clinicasorriso.unicain.com.br`), clique em *Save* e aguarde a plataforma emitir o certificado SSL/HTTPS.
 
-## Passo 8: Teste, Disparo e Follow-up
+## Passo 7: Teste, Disparo e Follow-up
 1. **Teste**: Acesse a URL do subdomínio criado (ex: `https://clinicasorriso.unicain.com.br`). Abra o painel do seu **PostHog** e confirme se a sua sessão apareceu ao vivo na aba "Live Events" ou "Recordings".
 2. **Disparo**: Mande a mensagem de prospecção fria incluindo a URL oficial que você criou com o parâmetro `?lead=`. 
    *(Ex: `https://clinicasorriso.unicain.com.br/?lead=Clínica%20Sorriso`)*

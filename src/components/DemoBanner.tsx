@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { lpData } from '../data';
 
 export function DemoBanner() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,7 +12,13 @@ export function DemoBanner() {
       const params = new URLSearchParams(window.location.search);
       const lead = params.get('lead');
       if (lead) {
-        setLeadName(lead);
+        // If we successfully fetched from the spreadsheet, lpData.about.name will have the nice name
+        // Otherwise fallback to whatever was in the URL parameter
+        if (lpData.about.name && lpData.about.name !== 'Ateliê do Movimento') {
+           setLeadName(lpData.about.name);
+        } else {
+           setLeadName(lead); // fallback to slug or default
+        }
       }
     }
 

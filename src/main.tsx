@@ -4,6 +4,7 @@ import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
 import App from './App.tsx';
 import './index.css';
+import { fetchAndApplyLeadData } from './fetchLeadData';
 
 // Initialize PostHog
 if (typeof window !== 'undefined' && import.meta.env.VITE_POSTHOG_KEY) {
@@ -13,10 +14,20 @@ if (typeof window !== 'undefined' && import.meta.env.VITE_POSTHOG_KEY) {
   });
 }
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <PostHogProvider client={posthog}>
-      <App />
-    </PostHogProvider>
-  </StrictMode>,
-);
+async function init() {
+  const params = new URLSearchParams(window.location.search);
+  const leadId = params.get('lead');
+  if (leadId) {
+    await fetchAndApplyLeadData(leadId);
+  }
+
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <PostHogProvider client={posthog}>
+        <App />
+      </PostHogProvider>
+    </StrictMode>,
+  );
+}
+
+init();
