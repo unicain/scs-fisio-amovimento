@@ -73,28 +73,28 @@ export const lpData: LandingPageConfig = {
       {
         id: '1',
         type: 'image',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800',
+        thumbnailUrl: './equipamentos_pratica2.jpg',
         caption: 'O Pilates ajuda no realinhamento postural, aliviando dores nas costas e melhorando a flexibilidade.',
         postUrl: 'https://www.instagram.com/ateliedomovimento/'
       },
       {
         id: '2',
         type: 'image',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1499540633125-484965b60031?auto=format&fit=crop&q=80&w=800',
+        thumbnailUrl: './equipamentos_pratica5.jpg',
         caption: 'Pilates na Gestação: Conexão com o bebê, redução de inchaços e bem-estar emocional.',
         postUrl: 'https://www.instagram.com/ateliedomovimento/'
       },
       {
         id: '3',
         type: 'image',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1552084117-56a947fd1b40?auto=format&fit=crop&q=80&w=800',
+        thumbnailUrl: './equipamentos_pratica3.jpg',
         caption: 'Diga adeus à má postura e aumente a sua qualidade de vida com a nossa orientação.',
         postUrl: 'https://www.instagram.com/ateliedomovimento/'
       },
       {
         id: '4',
         type: 'image',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800',
+        thumbnailUrl: './equipamentos_pratica4.jpg',
         caption: 'Respiração profunda e consciente é chave para aliviar ansiedade e fortalecer o core.',
         postUrl: 'https://www.instagram.com/ateliedomovimento/'
       }
@@ -136,16 +136,16 @@ export const lpData: LandingPageConfig = {
     text: 'Nosso espaço foi projetado para oferecer o máximo de conforto, segurança e tranquilidade durante o seu atendimento.\n\nCom equipamentos modernos e um ambiente climatizado, aqui você encontra o refúgio ideal para focar na sua recuperação e evolução física.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1599557434151-5121bc82f808?auto=format&fit=crop&q=80&w=800',
+        url: './/pilates_na_gestacao.jpg',
         alt: 'Equipamentos modernos de Pilates',
         featured: true
       },
       {
-        url: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800',
+        url: './equipamentos_pratica.jpg',
         alt: 'Estrutura aconchegante para prática'
       },
       {
-        url: 'https://images.unsplash.com/photo-1522849883584-c8c7ba286f05?auto=format&fit=crop&q=80&w=800',
+        url: './equipamentos.jpg',
         alt: 'Acessórios de Fisioterapia e Pilates'
       }
     ]
