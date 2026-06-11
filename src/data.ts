@@ -56,7 +56,7 @@ export const lpData: LandingPageConfig = {
     name: 'Ateliê do Movimento',
     role: 'Fisioterapia & Pilates',
     bio: 'Nosso espaço é dedicado ao cuidado com o seu corpo. A frente do Ateliê está Rochele Klafke Silveira, fisioterapeuta formada pela UNISC (2011), com especializações que garantem um tratamento seguro, focado em resultados e no seu conforto emocional e físico.',
-    imageUrl: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&q=80&w=800', 
+    imageUrl: 'https://drive.google.com/uc?export=view&id=1k1wmsGWB8KBqtbauxeEA09IJfLmZ3_V8', 
     credentials: [
       'Rochele Klafke Silveira - CREFITO 5-170417',
       'Fisioterapeuta graduada pela UNISC (2011)',
