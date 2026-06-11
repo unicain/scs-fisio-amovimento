@@ -47,7 +47,7 @@ export function DemoBanner() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsappUrl = "https://wa.me/5551981868150?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20uma%20p%C3%A1gina%20como%20a%20demonstrada%21";
+  const whatsappUrl = "https://wa.me/5551997291964?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20uma%20p%C3%A1gina%20como%20a%20demonstrada%21";
 
   return (
     <div className="fixed top-0 left-0 w-full z-[100] bg-slate-900 border-b border-[#B68D5D]/40 text-white shadow-xl transition-all duration-300 h-14 flex items-center justify-center px-4">

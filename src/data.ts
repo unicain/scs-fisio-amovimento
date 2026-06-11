@@ -10,7 +10,7 @@ export const lpData: LandingPageConfig = {
     textColor: '#1E292B',
   },
   contact: {
-    whatsappNumber: '5551900000000', // Adicione o WhatsApp real aqui
+    whatsappNumber: '5551997291964', // Adicione o WhatsApp real aqui
     whatsappMessage: 'Olá! Gostaria de saber mais sobre as aulas de Pilates e agendar minha avaliação.',
     address: 'R. João B de Menezes, 50 - Verena, Santa Cruz do Sul - RS, 96820-100',
     googleMapsLink: 'https://www.google.com/maps/dir//Ateli%C3%AA+do+Movimento+Fisioterapia+e+Pilates+-+R.+Jo%C3%A3o+B+de+Menezes,+50+-+Verena,+Santa+Cruz+do+Sul+-+RS,+96820-100/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x951ca3c09eaef0c7:0xf50349cd4c407171?sa=X&ved=1t:57443&ictx=111',
