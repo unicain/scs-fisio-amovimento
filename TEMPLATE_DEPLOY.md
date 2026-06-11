@@ -52,8 +52,10 @@ Nunca envie o link "puro". Use o parâmetro que ativa o **DemoBanner** para dar 
 
 ## Passo 6: Deploy no GitHub e Cloudflare (Subdomínio)
 1. **Exportação**: Exporte o código do projeto para um novo repositório no seu GitHub.
-2. **DNS no Cloudflare**: Acesse o painel do Cloudflare (onde o domínio `unicain.com.br` está gerenciado) e crie um novo registro **CNAME** apontando o subdomínio do lead (ex: `clinicasorriso`) para o servidor do GitHub Pages (geralmente `seu-usuario.github.io`).
-3. **GitHub Pages + Custom Domain**: No repositório do GitHub, vá na aba *Settings* > *Pages*. Configure o deploy da aplicação (seja exportando a branch `main`/pasta `dist` ou via GitHub Actions para Vite). Depois, na seção **Custom domain**, insira o subdomínio completo (ex: `clinicasorriso.unicain.com.br`), clique em *Save* e aguarde a plataforma emitir o certificado SSL/HTTPS.
+2. **Visibilidade do Repositório**: Certifique-se de que o repositório no GitHub está como **Public** (Público). Repositórios privados, dependendo do plano, não permitem o uso gratuito do GitHub Pages. Para alterar, vá em *Settings* > *General* > *Change repository visibility* no final da página.
+3. **Configuração de Build and Deployment**: No repositório, vá em *Settings* > *Pages*. Em **Build and deployment**, na opção **Source**, selecione **GitHub Actions**. Isso ativará o workflow que compila a aplicação (`deploy.yml`).
+4. **DNS no Cloudflare**: Acesse o painel do Cloudflare (onde o domínio `unicain.com.br` está gerenciado) e crie um novo registro **CNAME** apontando o subdomínio do lead (ex: `clinicasorriso`) para o servidor do GitHub Pages (geralmente `seu-usuario.github.io`).
+5. **GitHub Pages + Custom Domain**: Ainda na aba *Settings* > *Pages* do GitHub, após selecionar GitHub Actions e ele rodar com sucesso, desça até a opção **Custom domain**. Insira o subdomínio completo (ex: `clinicasorriso.unicain.com.br`), clique em *Save* e aguarde a plataforma emitir o certificado SSL/HTTPS.
 
 ## Passo 7: Teste, Disparo e Follow-up
 1. **Teste**: Acesse a URL do subdomínio criado (ex: `https://clinicasorriso.unicain.com.br`). Abra o painel do seu **PostHog** e confirme se a sua sessão apareceu ao vivo na aba "Live Events" ou "Recordings".
