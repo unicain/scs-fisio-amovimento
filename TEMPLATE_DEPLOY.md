@@ -34,8 +34,14 @@ Caso prefira (ou precise) fazer um ajuste manual ou revisão final:
    - **`about`, `services`, `space`, `gallery`, `pricing`, `faq`, `testimonials`**: Preencha as seções com textos voltados à realidade e dores do negócio do lead.
    - **Imagens**: Atualize as URLs das imagens com fotos reais do local (pegas no Maps/Instagram) ou use bancos de imagens de alta qualidade que representem o espaço.
 
-## Passo 4: Troca de Imagens
+## Passo 4: Troca de Imagens e Tamanhos Recomendados
 As imagens são fundamentais para dar a cara do negócio na Landing Page. Todas elas estão referenciadas no arquivo `src/data.ts`.
+
+**Tamanhos e Formatos Recomendados:**
+- **Logo (`logoUrl`)**: Quadrado ou Horizontal. Use com fundo transparente (PNG ou WebP).
+- **Banner Inicial (`heroImageUrl`)**: Retangular / Paisagem (ex: 1920x1080 px) ou Quadrado de alta resolução. O layout se adapta bem.
+- **Foto do Profissional (`aboutImageUrl`)**: Retrato (Vertical) ou Quadrado (ex: 800x1000 px ou 800x800). A imagem será cortada para caber perfeitamente no container.
+- **Estrutura / Espaço (`spaceImage1`, `spaceImage2`, `spaceImage3`)**: Idealmente Quadrado ou Paisagem (ex: 800x800 px ou 1080x768). O layout vai cortar automaticamente em um formato quadrado perfeito (`aspect-square`).
 
 Existem duas formas de colocar as imagens do lead:
 1. **Via URL Direta (Recomendado e mais rápido)**: Copie o link de uma imagem do Instagram ou do Google Maps do lead e cole na propriedade correspondente em `src/data.ts` (ex: `imageUrl: 'https://exemplo.com/foto.jpg'`).
@@ -63,7 +69,7 @@ Para ganhar escala (gerar diversas LPs sem duplicar o código), utilizamos a inf
 
 **Como funciona a Automação por Planilha (Nível 2):**
 1. Crie uma planilha no Google Sheets com as seguintes colunas (exatamente com estes nomes na primeira linha):
-   `leadId`, `name`, `primaryColor`, `logoUrl`, `heroImageUrl`, `instagramUrl`, `instagramHandle`, `googleMapsLink`, `address`, `whatsappNumber`, `whatsappMessage`, `role`, `aboutImageUrl`, `bio`, `headline`, `subheadline`.
+   `leadId`, `name`, `primaryColor`, `logoUrl`, `heroImageUrl`, `instagramUrl`, `instagramHandle`, `googleMapsLink`, `address`, `workingHours`, `whatsappNumber`, `whatsappMessage`, `role`, `aboutImageUrl`, `bio`, `headline`, `subheadline`, `testimonial1Name`, `testimonial1Text`, `testimonial2Name`, `testimonial2Text`, `testimonial3Name`, `testimonial3Text`, `service1Title`, `service1Desc`, `service2Title`, `service2Desc`, `service3Title`, `service3Desc`, `spaceImage1`, `spaceImage2`, `spaceImage3`, `faq1Question`, `faq1Answer`, `faq2Question`, `faq2Answer`, `faq3Question`, `faq3Answer`.
 2. Preencha uma linha para cada lead. A coluna `leadId` deve ser o identificador único na URL (ex: `clinica_sorriso`).
 3. No Google Sheets, vá em **Arquivo > Compartilhar > Publicar na Web**. Escolha a aba da sua planilha e mude o formato para **Valores separados por vírgula (.csv)**. Clique em Publicar e copie o link gerado.
 4. Volte para o projeto e cole esse link no arquivo `.env` na variável `VITE_GOOGLE_SHEET_CSV_URL`.

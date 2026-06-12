@@ -64,6 +64,7 @@ function applyLeadOverrides(row: any) {
   if (row.whatsappMessage) lpData.contact.whatsappMessage = row.whatsappMessage.trim();
   if (row.address) lpData.contact.address = row.address.trim();
   if (row.googleMapsLink) lpData.contact.googleMapsLink = row.googleMapsLink.trim();
+  if (row.workingHours) lpData.contact.workingHours = row.workingHours.trim();
 
   // About
   if (row.name) lpData.about.name = row.name.trim();
@@ -79,4 +80,69 @@ function applyLeadOverrides(row: any) {
   // Gallery (Instagram info)
   if (row.instagramUrl) lpData.gallery.instagramUrl = row.instagramUrl.trim();
   if (row.instagramHandle) lpData.gallery.instagramHandle = row.instagramHandle.trim();
+
+  // Testimonials (up to 3)
+  if (row.testimonial1Name && row.testimonial1Text) {
+    if (!lpData.testimonials.items[0]) lpData.testimonials.items[0] = { id: '1', name: '', text: '', rating: 5 };
+    lpData.testimonials.items[0].name = row.testimonial1Name.trim();
+    lpData.testimonials.items[0].text = row.testimonial1Text.trim();
+  }
+  if (row.testimonial2Name && row.testimonial2Text) {
+    if (!lpData.testimonials.items[1]) lpData.testimonials.items[1] = { id: '2', name: '', text: '', rating: 5 };
+    lpData.testimonials.items[1].name = row.testimonial2Name.trim();
+    lpData.testimonials.items[1].text = row.testimonial2Text.trim();
+  }
+  if (row.testimonial3Name && row.testimonial3Text) {
+    if (!lpData.testimonials.items[2]) lpData.testimonials.items[2] = { id: '3', name: '', text: '', rating: 5 };
+    lpData.testimonials.items[2].name = row.testimonial3Name.trim();
+    lpData.testimonials.items[2].text = row.testimonial3Text.trim();
+  }
+
+  // Services (up to 3)
+  if (row.service1Title && row.service1Desc) {
+    if (!lpData.services.items[0]) lpData.services.items[0] = { id: '1', title: '', description: '', icon: 'Activity' };
+    lpData.services.items[0].title = row.service1Title.trim();
+    lpData.services.items[0].description = row.service1Desc.trim();
+  }
+  if (row.service2Title && row.service2Desc) {
+    if (!lpData.services.items[1]) lpData.services.items[1] = { id: '2', title: '', description: '', icon: 'Heart' };
+    lpData.services.items[1].title = row.service2Title.trim();
+    lpData.services.items[1].description = row.service2Desc.trim();
+  }
+  if (row.service3Title && row.service3Desc) {
+    if (!lpData.services.items[2]) lpData.services.items[2] = { id: '3', title: '', description: '', icon: 'Shield' };
+    lpData.services.items[2].title = row.service3Title.trim();
+    lpData.services.items[2].description = row.service3Desc.trim();
+  }
+
+  // Space Images (up to 3)
+  if (row.spaceImage1) {
+    if (!lpData.space.images[0]) lpData.space.images[0] = { url: '', alt: 'Espaço 1' };
+    lpData.space.images[0].url = formatImageUrl(row.spaceImage1) || '';
+  }
+  if (row.spaceImage2) {
+    if (!lpData.space.images[1]) lpData.space.images[1] = { url: '', alt: 'Espaço 2' };
+    lpData.space.images[1].url = formatImageUrl(row.spaceImage2) || '';
+  }
+  if (row.spaceImage3) {
+    if (!lpData.space.images[2]) lpData.space.images[2] = { url: '', alt: 'Espaço 3' };
+    lpData.space.images[2].url = formatImageUrl(row.spaceImage3) || '';
+  }
+
+  // FAQs (up to 3)
+  if (row.faq1Question && row.faq1Answer) {
+    if (!lpData.faq.items[0]) lpData.faq.items[0] = { id: '1', question: '', answer: '' };
+    lpData.faq.items[0].question = row.faq1Question.trim();
+    lpData.faq.items[0].answer = row.faq1Answer.trim();
+  }
+  if (row.faq2Question && row.faq2Answer) {
+    if (!lpData.faq.items[1]) lpData.faq.items[1] = { id: '2', question: '', answer: '' };
+    lpData.faq.items[1].question = row.faq2Question.trim();
+    lpData.faq.items[1].answer = row.faq2Answer.trim();
+  }
+  if (row.faq3Question && row.faq3Answer) {
+    if (!lpData.faq.items[2]) lpData.faq.items[2] = { id: '3', question: '', answer: '' };
+    lpData.faq.items[2].question = row.faq3Question.trim();
+    lpData.faq.items[2].answer = row.faq3Answer.trim();
+  }
 }
