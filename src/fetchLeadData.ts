@@ -34,10 +34,30 @@ export async function fetchAndApplyLeadData(leadId: string): Promise<void> {
   }
 }
 
+function formatImageUrl(url: string | undefined): string | undefined {
+  if (!url) return url;
+  let cleanUrl = url.trim();
+
+  // Convert Google Drive view links to direct image links
+  if (cleanUrl.includes('drive.google.com/file/d/')) {
+    const match = cleanUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if (match && match[1]) {
+      cleanUrl = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+    }
+  }
+
+  // Convert Imgur HTML page links to direct image links
+  if (cleanUrl.match(/^https?:\/\/imgur\.com\/[a-zA-Z0-9]+$/)) {
+    cleanUrl = cleanUrl.replace('imgur.com', 'i.imgur.com') + '.jpg';
+  }
+
+  return cleanUrl;
+}
+
 function applyLeadOverrides(row: any) {
   // Theme
   if (row.primaryColor) lpData.theme.primaryColor = row.primaryColor.trim();
-  if (row.logoUrl) lpData.theme.logoUrl = row.logoUrl.trim();
+  if (row.logoUrl) lpData.theme.logoUrl = formatImageUrl(row.logoUrl) || lpData.theme.logoUrl;
 
   // Contact
   if (row.whatsappNumber) lpData.contact.whatsappNumber = row.whatsappNumber.trim();
@@ -48,11 +68,11 @@ function applyLeadOverrides(row: any) {
   // About
   if (row.name) lpData.about.name = row.name.trim();
   if (row.role) lpData.about.role = row.role.trim();
-  if (row.aboutImageUrl) lpData.about.imageUrl = row.aboutImageUrl.trim();
+  if (row.aboutImageUrl) lpData.about.imageUrl = formatImageUrl(row.aboutImageUrl) || lpData.about.imageUrl;
   if (row.bio) lpData.about.bio = row.bio.trim();
 
   // Hero
-  if (row.heroImageUrl) lpData.hero.imageUrl = row.heroImageUrl.trim();
+  if (row.heroImageUrl) lpData.hero.imageUrl = formatImageUrl(row.heroImageUrl) || lpData.hero.imageUrl;
   if (row.headline) lpData.hero.headline = row.headline.trim();
   if (row.subheadline) lpData.hero.subheadline = row.subheadline.trim();
 
