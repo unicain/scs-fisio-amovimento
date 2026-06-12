@@ -74,6 +74,18 @@ function applyLeadOverrides(row: any) {
   if (row.role) lpData.about.role = row.role.trim();
   if (row.aboutImageUrl) lpData.about.imageUrl = formatImageUrl(row.aboutImageUrl) || lpData.about.imageUrl;
   if (row.bio) lpData.about.bio = row.bio.trim();
+  
+  if (row.aboutCredential1 || row.aboutCredential2 || row.aboutCredential3) {
+    lpData.about.credentials = [];
+    if (row.aboutCredential1) lpData.about.credentials.push(row.aboutCredential1.trim());
+    if (row.aboutCredential2) lpData.about.credentials.push(row.aboutCredential2.trim());
+    if (row.aboutCredential3) lpData.about.credentials.push(row.aboutCredential3.trim());
+  }
+
+  // Space Description
+  if (row.spaceTitle) lpData.space.sectionTitle = row.spaceTitle.trim();
+  if (row.spaceSubtitle) lpData.space.sectionSubtitle = row.spaceSubtitle.trim();
+  if (row.spaceDescription) lpData.space.text = row.spaceDescription.trim();
 
   // Hero
   if (row.heroImageUrl) lpData.hero.imageUrl = formatImageUrl(row.heroImageUrl) || lpData.hero.imageUrl;
@@ -83,6 +95,28 @@ function applyLeadOverrides(row: any) {
   // Gallery (Instagram info)
   if (row.instagramUrl) lpData.gallery.instagramUrl = row.instagramUrl.trim();
   if (row.instagramHandle) lpData.gallery.instagramHandle = row.instagramHandle.trim();
+
+  // Gallery Images (up to 4)
+  if (row.galleryImage1Url) {
+    if (!lpData.gallery.items[0]) lpData.gallery.items[0] = { id: '1', type: 'image', thumbnailUrl: '', postUrl: '' };
+    lpData.gallery.items[0].thumbnailUrl = formatImageUrl(row.galleryImage1Url) || '';
+    if (row.galleryImage1Caption) lpData.gallery.items[0].caption = row.galleryImage1Caption.trim();
+  }
+  if (row.galleryImage2Url) {
+    if (!lpData.gallery.items[1]) lpData.gallery.items[1] = { id: '2', type: 'image', thumbnailUrl: '', postUrl: '' };
+    lpData.gallery.items[1].thumbnailUrl = formatImageUrl(row.galleryImage2Url) || '';
+    if (row.galleryImage2Caption) lpData.gallery.items[1].caption = row.galleryImage2Caption.trim();
+  }
+  if (row.galleryImage3Url) {
+    if (!lpData.gallery.items[2]) lpData.gallery.items[2] = { id: '3', type: 'image', thumbnailUrl: '', postUrl: '' };
+    lpData.gallery.items[2].thumbnailUrl = formatImageUrl(row.galleryImage3Url) || '';
+    if (row.galleryImage3Caption) lpData.gallery.items[2].caption = row.galleryImage3Caption.trim();
+  }
+  if (row.galleryImage4Url) {
+    if (!lpData.gallery.items[3]) lpData.gallery.items[3] = { id: '4', type: 'image', thumbnailUrl: '', postUrl: '' };
+    lpData.gallery.items[3].thumbnailUrl = formatImageUrl(row.galleryImage4Url) || '';
+    if (row.galleryImage4Caption) lpData.gallery.items[3].caption = row.galleryImage4Caption.trim();
+  }
 
   // Testimonials (up to 3)
   if (row.testimonial1Name && row.testimonial1Text) {
@@ -101,7 +135,7 @@ function applyLeadOverrides(row: any) {
     lpData.testimonials.items[2].text = row.testimonial3Text.trim();
   }
 
-  // Services (up to 3)
+  // Services (up to 4)
   if (row.service1Title && row.service1Desc) {
     if (!lpData.services.items[0]) lpData.services.items[0] = { id: '1', title: '', description: '', icon: 'Activity' };
     lpData.services.items[0].title = row.service1Title.trim();
@@ -116,6 +150,11 @@ function applyLeadOverrides(row: any) {
     if (!lpData.services.items[2]) lpData.services.items[2] = { id: '3', title: '', description: '', icon: 'Shield' };
     lpData.services.items[2].title = row.service3Title.trim();
     lpData.services.items[2].description = row.service3Desc.trim();
+  }
+  if (row.service4Title && row.service4Desc) {
+    if (!lpData.services.items[3]) lpData.services.items[3] = { id: '4', title: '', description: '', icon: 'Star' };
+    lpData.services.items[3].title = row.service4Title.trim();
+    lpData.services.items[3].description = row.service4Desc.trim();
   }
 
   // Space Images (up to 3)

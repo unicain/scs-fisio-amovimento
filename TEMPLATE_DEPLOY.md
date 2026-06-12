@@ -42,6 +42,10 @@ As imagens são fundamentais para dar a cara do negócio na Landing Page. Todas 
 - **Banner Inicial (`heroImageUrl`)**: Retangular / Paisagem (ex: 1920x1080 px) ou Quadrado de alta resolução. O layout se adapta bem.
 - **Foto do Profissional (`aboutImageUrl`)**: Retrato (Vertical) ou Quadrado (ex: 800x1000 px ou 800x800). A imagem será cortada para caber perfeitamente no container.
 - **Estrutura / Espaço (`spaceImage1`, `spaceImage2`, `spaceImage3`)**: Idealmente Quadrado ou Paisagem (ex: 800x800 px ou 1080x768). O layout vai cortar automaticamente em um formato quadrado perfeito (`aspect-square`).
+- **Galeria (`galleryImage1Url` a `galleryImage4Url`)**:
+  - Imagens 1 e 4: Ideais em formato Retangular/Paisagem (ex: 16:9 ou 2:1, como 1920x1080px). No layout de desktop elas ficam mais compridas para dar um efeito dinâmico.
+  - Imagens 2 e 3: Ideais em formato Quadrado (1:1, ex: 1080x1080px). Ficam como "blocos" menores centralizados.
+  *Nota: O layout usa imagens que preenchem (object-cover), então formatos levemente diferentes serão cortados automaticamente para caber sem amassar.*
 
 Existem duas formas de colocar as imagens do lead:
 1. **Via URL Direta (Recomendado e mais rápido)**: Copie o link de uma imagem do Instagram ou do Google Maps do lead e cole na propriedade correspondente em `src/data.ts` (ex: `imageUrl: 'https://exemplo.com/foto.jpg'`).
@@ -69,7 +73,7 @@ Para ganhar escala (gerar diversas LPs sem duplicar o código), utilizamos a inf
 
 **Como funciona a Automação por Planilha (Nível 2):**
 1. Crie uma planilha no Google Sheets com as seguintes colunas (exatamente com estes nomes na primeira linha):
-   `leadId`, `name`, `primaryColor`, `secondaryColor`, `backgroundColor`, `textColor`, `logoUrl`, `heroImageUrl`, `instagramUrl`, `instagramHandle`, `googleMapsLink`, `address`, `workingHours`, `whatsappNumber`, `whatsappMessage`, `role`, `aboutImageUrl`, `bio`, `headline`, `subheadline`, `testimonial1Name`, `testimonial1Text`, `testimonial2Name`, `testimonial2Text`, `testimonial3Name`, `testimonial3Text`, `service1Title`, `service1Desc`, `service2Title`, `service2Desc`, `service3Title`, `service3Desc`, `spaceImage1`, `spaceImage2`, `spaceImage3`, `faq1Question`, `faq1Answer`, `faq2Question`, `faq2Answer`, `faq3Question`, `faq3Answer`.
+   `leadId`, `name`, `primaryColor`, `secondaryColor`, `backgroundColor`, `textColor`, `logoUrl`, `heroImageUrl`, `instagramUrl`, `instagramHandle`, `googleMapsLink`, `address`, `workingHours`, `whatsappNumber`, `whatsappMessage`, `role`, `aboutImageUrl`, `bio`, `aboutCredential1`, `aboutCredential2`, `aboutCredential3`, `headline`, `subheadline`, `testimonial1Name`, `testimonial1Text`, `testimonial2Name`, `testimonial2Text`, `testimonial3Name`, `testimonial3Text`, `service1Title`, `service1Desc`, `service2Title`, `service2Desc`, `service3Title`, `service3Desc`, `service4Title`, `service4Desc`, `spaceTitle`, `spaceSubtitle`, `spaceDescription`, `spaceImage1`, `spaceImage2`, `spaceImage3`, `galleryImage1Url`, `galleryImage1Caption`, `galleryImage2Url`, `galleryImage2Caption`, `galleryImage3Url`, `galleryImage3Caption`, `galleryImage4Url`, `galleryImage4Caption`, `faq1Question`, `faq1Answer`, `faq2Question`, `faq2Answer`, `faq3Question`, `faq3Answer`.
 2. Preencha uma linha para cada lead. A coluna `leadId` deve ser o identificador único na URL (ex: `clinica_sorriso`).
 3. No Google Sheets, vá em **Arquivo > Compartilhar > Publicar na Web**. Escolha a aba da sua planilha e mude o formato para **Valores separados por vírgula (.csv)**. Clique em Publicar e copie o link gerado.
 4. Volte para o projeto e cole esse link no arquivo `.env` na variável `VITE_GOOGLE_SHEET_CSV_URL`.
