@@ -57,6 +57,9 @@ function formatImageUrl(url: string | undefined): string | undefined {
 function applyLeadOverrides(row: any) {
   // Theme
   if (row.primaryColor) lpData.theme.primaryColor = row.primaryColor.trim();
+  if (row.secondaryColor) lpData.theme.secondaryColor = row.secondaryColor.trim();
+  if (row.backgroundColor) lpData.theme.backgroundColor = row.backgroundColor.trim();
+  if (row.textColor) lpData.theme.textColor = row.textColor.trim();
   if (row.logoUrl) lpData.theme.logoUrl = formatImageUrl(row.logoUrl) || lpData.theme.logoUrl;
 
   // Contact
